@@ -27,7 +27,7 @@ async function uploadAvatar(req, res) {
     fs.writeFileSync(imagePath, imageBuffer);
     console.log("Image has been saved:", imagePath);
     res.status(200).json({
-      uploadPath: `http://127.0.0.1:5000/public/avatar/${virtualName}.png`,
+      uploadPath: `${process.env.AVATAR_UPLOAD_SERVICE}public/avatar/${virtualName}.png`,
     });
   } catch (err) {
     console.log(err);
